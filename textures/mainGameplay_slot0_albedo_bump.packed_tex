@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 512,
+	"src": {
+		"a": "#ff888888",
+		"rgb": "res://textures/b9c1c5890db3e7c91c75dd1903e73f8a.jpg"
+	}
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://textures/mainGameplay_slot0_albedo_bump.packed_tex" type="Texture" id=4]
 [ext_resource path="res://textures/BlueSkySkybox.png" type="Texture" id=5]
 [ext_resource path="res://textures/water 0340normal.jpg" type="Texture" id=6]
+[ext_resource path="res://terrain/data.hterrain" type="Resource" id=7]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
@@ -13,12 +14,13 @@ mode = 0
 textures = [ [ ExtResource( 4 ) ], [ ExtResource( 3 ) ] ]
 
 [sub_resource type="PanoramaSky" id=5]
+radiance_size = 0
 panorama = ExtResource( 5 )
 
 [sub_resource type="Environment" id=4]
 background_mode = 2
 background_sky = SubResource( 5 )
-background_energy = 1.5
+background_energy = 0.89
 
 [sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
@@ -32,37 +34,23 @@ normal_enabled = true
 normal_scale = 0.05
 normal_texture = ExtResource( 6 )
 uv1_scale = Vector3( 80, 80, 0 )
-uv2_offset = Vector3( 1, 0, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 82.14
 
 [sub_resource type="PlaneMesh" id=6]
 
 [sub_resource type="Animation" id=8]
-length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material_override:uv2_offset")
+tracks/0/path = NodePath(".:material_override:uv1_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1, 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:material_override:uv1_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -86,9 +74,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -250 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 1 )
-ambient_wind = 0.344
-lod_scale = 3.752
-_terrain_data = null
+_terrain_data = ExtResource( 7 )
 chunk_size = 32
 collision_enabled = true
 collision_layer = 1
@@ -104,12 +90,12 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.118169, -0.914316, 0.387378, 0.866504, -0.0955853, -0.489933, 0.484981, 0.39356, 0.780964, 2.17101, -0.0480018, 0.0916348 )
-light_energy = 3.083
+transform = Transform( 0.31648, 0.916107, 0.246147, 0.697863, -0.40061, 0.593717, 0.642517, -0.0161225, -0.766102, 2.17101, -0.0480042, -12.6396 )
+light_energy = 0.0
 light_indirect_energy = 0.0
 light_specular = 0.0
-shadow_bias = 5.054
-shadow_contact = 0.024
+shadow_bias = 4.844
+shadow_contact = 0.562
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )

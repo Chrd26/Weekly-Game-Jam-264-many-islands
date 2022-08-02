@@ -7,7 +7,7 @@
 [ext_resource path="res://textures/BlueSkySkybox.png" type="Texture" id=5]
 [ext_resource path="res://textures/water 0340normal.jpg" type="Texture" id=6]
 [ext_resource path="res://terrain/data.hterrain" type="Resource" id=7]
-[ext_resource path="res://models/placeholdercubes/redcube/redCube.tscn" type="PackedScene" id=8]
+[ext_resource path="res://player.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
@@ -35,9 +35,9 @@ normal_enabled = true
 normal_scale = 0.05
 normal_texture = ExtResource( 6 )
 uv1_scale = Vector3( 80, 80, 0 )
-uv1_offset = Vector3( 0.253711, 0, 0 )
+uv1_offset = Vector3( 0, 0.047938, 0 )
 proximity_fade_enable = true
-proximity_fade_distance = 82.14
+proximity_fade_distance = 1.0
 
 [sub_resource type="PlaneMesh" id=6]
 
@@ -53,7 +53,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -73,7 +73,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 1.39427, 1.01456, 1.15552 )
+extents = Vector3( 2.93192, 1, 1 )
 
 [node name="mainNode" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -250 )
@@ -107,22 +107,28 @@ shadow_contact = 0.562
 environment = SubResource( 4 )
 
 [node name="water" type="MeshInstance" parent="."]
-transform = Transform( 500, 0, 0, 0, 1, 0, 0, 0, 500, 250.103, 37.4422, 250.069 )
+transform = Transform( 500, 0, 0, 0, 1, 0, 0, 0, 500, 250.103, 38, 250.069 )
 material_override = SubResource( 7 )
 mesh = SubResource( 6 )
 material/0 = null
 
 [node name="uv_water_animation" type="AnimationPlayer" parent="water"]
+autoplay = "water_anim"
 playback_speed = 0.1
 anims/RESET = SubResource( 8 )
 anims/water_anim = SubResource( 9 )
 
-[node name="player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38, 250 )
+[node name="player" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38.11, 250 )
 
-[node name="pivot" type="Spatial" parent="player"]
+[node name="cameraPivot" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.992899, -0.118959, 0, 0.118959, 0.992899, 250, 38.316, 249.012 )
 
-[node name="redCube" parent="player/pivot" instance=ExtResource( 8 )]
+[node name="Camera" type="Camera" parent="cameraPivot"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="player"]
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38, 247.712 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 10 )

@@ -30,6 +30,10 @@ config/name="WGJ_264_Many_Islands"
 run/main_scene="res://mainGameplay.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )

@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="score" type="Spatial"]
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1133.0
+margin_bottom = 748.0
+size_flags_vertical = 2
+size_flags_stretch_ratio = 20.0
+text = "0
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

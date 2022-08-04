@@ -8,7 +8,7 @@
 [ext_resource path="res://textures/water 0340normal.jpg" type="Texture" id=6]
 [ext_resource path="res://terrain/data.hterrain" type="Resource" id=7]
 [ext_resource path="res://player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://island1spawnandmovement.tscn" type="PackedScene" id=9]
+[ext_resource path="res://timer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://global.gd" type="Script" id=10]
 [ext_resource path="res://number.gd" type="Script" id=11]
 [ext_resource path="res://livesnumber.gd" type="Script" id=12]
@@ -120,7 +120,7 @@ material/0 = null
 
 [node name="uv_water_animation" type="AnimationPlayer" parent="water"]
 autoplay = "water_anim"
-playback_speed = 0.1
+playback_speed = 0.3
 anims/RESET = SubResource( 8 )
 anims/water_anim = SubResource( 9 )
 
@@ -187,7 +187,9 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 11 )
 
-[node name="island2" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 250, 38.1, 250 )
+[node name="spawn" parent="." instance=ExtResource( 9 )]
+wait_time = 5.0
+autostart = true
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://global.gd"
+GlobalTimer="*res://timer.tscn"
 
 [editor_plugins]
 

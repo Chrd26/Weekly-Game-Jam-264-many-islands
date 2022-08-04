@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://island1spawnandmovement.tscn" type="PackedScene" id=9]
 [ext_resource path="res://global.gd" type="Script" id=10]
+[ext_resource path="res://number.gd" type="Script" id=11]
+[ext_resource path="res://livesnumber.gd" type="Script" id=12]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
@@ -73,8 +75,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 2.93192, 1, 1 )
+[sub_resource type="PlaneMesh" id=10]
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 2.174, 1, 1 )
 
 [node name="mainNode" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -250 )
@@ -120,25 +124,6 @@ playback_speed = 0.1
 anims/RESET = SubResource( 8 )
 anims/water_anim = SubResource( 9 )
 
-[node name="player" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38.11, 250 )
-
-[node name="cameraPivot" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.992899, -0.118959, 0, 0.118959, 0.992899, 250, 38.316, 249.012 )
-
-[node name="Camera" type="Camera" parent="cameraPivot"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38, 247.712 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 13.732, 0, 0, 0, 4.104, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 10 )
-
-[node name="island" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 250, 38.11, 250 )
-
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="score" type="Label" parent="hud"]
@@ -155,10 +140,54 @@ __meta__ = {
 margin_left = 43.0
 margin_top = 1.0
 margin_right = 104.0
-margin_bottom = 32.0
-text = "0
-"
+margin_bottom = 15.0
 align = 1
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Lives" type="Label" parent="hud"]
+margin_left = 926.0
+margin_top = 1.0
+margin_right = 966.0
+margin_bottom = 32.0
+text = "Lives:
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="livesnumber" type="Label" parent="hud"]
+margin_left = 966.0
+margin_top = 2.0
+margin_right = 1006.0
+margin_bottom = 16.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" parent="." instance=ExtResource( 8 )]
+
+[node name="cameraPivot" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.992899, -0.118959, 0, 0.118959, 0.992899, 250, 38.316, 249.012 )
+
+[node name="Camera" type="Camera" parent="cameraPivot"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 7.45058e-09, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 37.984, 248.674 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 11 )
+
+[node name="island2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 250, 38.1, 250 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

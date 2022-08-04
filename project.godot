@@ -27,16 +27,21 @@ _global_script_class_icons={
 [application]
 
 config/name="WGJ_264_Many_Islands"
-run/main_scene="res://mainGameplay.tscn"
+run/main_scene="res://begin.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://global.gd"
+Player="*res://player.tscn"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
+
+[global]
+
+interface=false
 
 [input]
 

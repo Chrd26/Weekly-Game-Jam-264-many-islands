@@ -8,16 +8,16 @@
 size = 96
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 60
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=3]
 size = 116
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 98
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
 font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
@@ -34,17 +34,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Game Over"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 372.0
-margin_top = 466.0
-margin_right = 619.0
-margin_bottom = 575.0
-custom_fonts/font = SubResource( 2 )
-text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,6 +60,17 @@ custom_fonts/font = SubResource( 4 )
 align = 1
 valign = 1
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 372.0
+margin_top = 466.0
+margin_right = 619.0
+margin_bottom = 575.0
+custom_fonts/font = SubResource( 2 )
+text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -46,7 +46,7 @@ func _on_spawn_timeout():
 	rand_x = rand_range(240, 260);
 	island = loadisland.instance();
 	island.translation.x = rand_x;
-	island.translation.y = 38.1;
+	island.translation.y = 37.8;
 	island.translation.z = 250;
 	add_child(island);
 	print("time");

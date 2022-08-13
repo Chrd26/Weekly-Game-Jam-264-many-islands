@@ -20,3 +20,4 @@ func _on_Button_pressed():
 	pass # Replace with function body.
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://mainGameplay.tscn");
+	Global.score = 0;

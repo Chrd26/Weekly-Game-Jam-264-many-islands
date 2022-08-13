@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://global.gd" type="Script" id=10]
 [ext_resource path="res://number.gd" type="Script" id=11]
 [ext_resource path="res://livesnumber.gd" type="Script" id=12]
+[ext_resource path="res://fonts/Roboto-LightItalic.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
@@ -30,7 +31,7 @@ background_energy = 0.89
 [sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 flags_vertex_lighting = true
-albedo_color = Color( 0.764706, 0.764706, 0.764706, 0.709804 )
+albedo_color = Color( 0.364706, 0.403922, 0.819608, 0.815686 )
 metallic = 1.0
 metallic_specular = 1.0
 metallic_texture_channel = 2
@@ -79,6 +80,25 @@ tracks/0/keys = {
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 2.174, 1, 1 )
 
+[sub_resource type="DynamicFontData" id=15]
+font_path = "res://fonts/Roboto-LightItalic.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+font_data = SubResource( 15 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 40
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 40
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 40
+font_data = ExtResource( 13 )
+
 [node name="mainNode" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -250 )
 script = ExtResource( 10 )
@@ -124,72 +144,89 @@ playback_speed = 0.5
 anims/RESET = SubResource( 8 )
 anims/water_anim = SubResource( 9 )
 
-[node name="hud" type="CanvasLayer" parent="."]
-
-[node name="score" type="Label" parent="hud"]
-margin_right = 46.0
-margin_bottom = 31.0
-text = "Score:
-"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="number" type="Label" parent="hud"]
-margin_left = 43.0
-margin_top = 1.0
-margin_right = 104.0
-margin_bottom = 15.0
-align = 1
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Lives" type="Label" parent="hud"]
-margin_left = 926.0
-margin_top = 1.0
-margin_right = 966.0
-margin_bottom = 32.0
-text = "Lives:
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="livesnumber" type="Label" parent="hud"]
-margin_left = 966.0
-margin_top = 2.0
-margin_right = 1006.0
-margin_bottom = 16.0
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="player" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 249.998, 38.1, 250.003 )
 
-[node name="cameraPivot" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.992899, -0.118959, 0, 0.118959, 0.992899, 250, 38.316, 249.012 )
+[node name="Area2" type="Area" parent="player"]
+transform = Transform( 2.516, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116, -3.1 )
 
-[node name="Camera" type="Camera" parent="cameraPivot"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 7.45058e-09, 8.74228e-08, 0, -1, 0, 0, 0 )
-
-[node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 37.984, 248.674 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Area"]
+[node name="MeshInstance" type="MeshInstance" parent="player/Area2"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 10 )
+skeleton = NodePath("../../Area2")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="player/Area2"]
 shape = SubResource( 11 )
 
 [node name="spawn" parent="." instance=ExtResource( 9 )]
 wait_time = 5.0
 autostart = true
 
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[node name="cameraPivot" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38.316, 248.368 )
+
+[node name="Camera" type="Camera" parent="cameraPivot"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 7.45058e-09, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="livesnumber" type="Label" parent="CanvasLayer"]
+margin_left = 137.0
+margin_top = 3.0
+margin_right = 177.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 12 )
+align = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="number" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -92.0
+margin_top = 1.0
+margin_right = -26.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 16 )
+align = 1
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -205.0
+margin_top = 1.0
+margin_right = -99.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 14 )
+text = "Score:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lives" type="Label" parent="CanvasLayer"]
+margin_left = 36.0
+margin_right = 133.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 17 )
+text = "Lives:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="player/Area2" to="." method="_on_Area_body_entered"]
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

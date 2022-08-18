@@ -23,7 +23,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("move_left"):
 		$boatmachinesound.pitch_scale = 1;
 	
-	if Input.is_action_just_pressed("move_right"):
+	if Input.is_action_just_released("move_right"):
 		$boatmachinesound.pitch_scale = 1;
 
 	if direction != Vector3.ZERO:
@@ -50,6 +50,6 @@ func _on_Area_body_entered(body):
 		if !$loselife.is_playing():
 			randomPitcn.randomize();
 			randomPitchNumber = randomPitcn.randf_range(0.8, 1.2);
-			$loselife.pitch_scale - randomPitchNumber;
+			$loselife.pitch_scale = randomPitchNumber;
 			$loselife.play();
 

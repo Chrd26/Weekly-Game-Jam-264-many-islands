@@ -9,16 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "AK",
-"language": "GDScript",
-"path": "res://wwise/GeneratedSoundBanks/wwise_ids.gd"
-}, {
-"base": "Reference",
-"class": "AkUtils",
-"language": "GDScript",
-"path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
-}, {
 "base": "ResourceFormatLoader",
 "class": "HTerrainDataLoader",
 "language": "GDScript",
@@ -30,8 +20,6 @@ _global_script_classes=[ {
 "path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
 } ]
 _global_script_class_icons={
-"AK": "",
-"AkUtils": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": ""
 }
@@ -46,13 +34,10 @@ config/icon="res://icon.png"
 
 Global="*res://global.gd"
 GlobalTimer="*res://timer.tscn"
-WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
-Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
-Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/wwise/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
 
 [global]
 
@@ -83,3 +68,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[wwise]
+
+common_user_settings/load_init_bank_at_startup=false

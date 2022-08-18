@@ -9,6 +9,7 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 	Global.lives = 3;
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,5 +20,9 @@ func _ready():
 func _on_Button_pressed():
 	pass # Replace with function body.
 	# warning-ignore:return_value_discarded
+	var loadsound = load("res://sounds.tscn")
+	var buttonPlay = loadsound.instance();
+	add_child(buttonPlay);
 	get_tree().change_scene("res://mainGameplay.tscn");
 	Global.score = 0;
+	

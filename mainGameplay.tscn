@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://number.gd" type="Script" id=11]
 [ext_resource path="res://livesnumber.gd" type="Script" id=12]
 [ext_resource path="res://fonts/Roboto-LightItalic.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://sound/boat-MP3.mp3" type="AudioStream" id=14]
+[ext_resource path="res://sound/moveshiploop.mp3" type="AudioStream" id=15]
+[ext_resource path="res://sound/Sea Sound by Amholma Freesound.mp3" type="AudioStream" id=16]
+[ext_resource path="res://sound/Get point-MP3.mp3" type="AudioStream" id=17]
+[ext_resource path="res://sound/Lose Life-MP3.mp3" type="AudioStream" id=18]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
@@ -144,7 +149,7 @@ playback_speed = 0.5
 anims/RESET = SubResource( 8 )
 anims/water_anim = SubResource( 9 )
 
-[node name="player" parent="." instance=ExtResource( 8 )]
+[node name="player" parent="." groups=["player"] instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 249.998, 38.1, 250.003 )
 
 [node name="Area2" type="Area" parent="player"]
@@ -159,6 +164,29 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="player/Area2"]
 shape = SubResource( 11 )
 
+[node name="boatmachinesound" type="AudioStreamPlayer3D" parent="player"]
+stream = ExtResource( 14 )
+autoplay = true
+bus = "boatmachine"
+doppler_tracking = 2
+
+[node name="boatsea" type="AudioStreamPlayer3D" parent="player"]
+stream = ExtResource( 15 )
+unit_size = 73.2
+autoplay = true
+bus = "boatsea"
+doppler_tracking = 2
+
+[node name="pointget" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource( 17 )
+volume_db = 10.0
+bus = "getpoint"
+
+[node name="loselife" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource( 18 )
+volume_db = 10.0
+bus = "loselife"
+
 [node name="spawn" parent="." instance=ExtResource( 9 )]
 wait_time = 5.0
 autostart = true
@@ -168,6 +196,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 38.316, 248.368 )
 
 [node name="Camera" type="Camera" parent="cameraPivot"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 7.45058e-09, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="sea" type="AudioStreamPlayer3D" parent="cameraPivot"]
+stream = ExtResource( 16 )
+autoplay = true
+bus = "atmos"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 40.0

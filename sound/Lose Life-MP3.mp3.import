@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lose Life-MP3.mp3-82bb04649dd6d1fe246144da958aa61b.mp3str"
+
+[deps]
+
+source_file="res://sound/Lose Life-MP3.mp3"
+dest_files=[ "res://.import/Lose Life-MP3.mp3-82bb04649dd6d1fe246144da958aa61b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

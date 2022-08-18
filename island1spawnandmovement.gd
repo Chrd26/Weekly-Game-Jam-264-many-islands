@@ -16,7 +16,10 @@ func _ready():
 #	pass
 
 
-func _on_RigidBody_body_entered(_body):
+func _on_Area_body_entered(body):
 	pass # Replace with function body.
-	print("colliding");
-	queue_free();
+	if body.is_in_group("player"):
+		queue_free();
+		#print("collide");
+	#elif body.is_in_group("island"):
+	#	queue_free();

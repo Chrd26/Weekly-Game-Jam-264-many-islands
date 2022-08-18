@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Exit Ship-MP3.mp3-bb072bb14351e15ea6172ad2e0cd0740.mp3str"
+
+[deps]
+
+source_file="res://Exit Ship-MP3.mp3"
+dest_files=[ "res://.import/Exit Ship-MP3.mp3-bb072bb14351e15ea6172ad2e0cd0740.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

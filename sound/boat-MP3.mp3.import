@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boat-MP3.mp3-7642ccd879b33528f2829acabc69e287.mp3str"
+
+[deps]
+
+source_file="res://sound/boat-MP3.mp3"
+dest_files=[ "res://.import/boat-MP3.mp3-7642ccd879b33528f2829acabc69e287.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sea Sound by Amholma Freesound.mp3-f0769a4e8bfa5d6127b2c49123b51970.mp3str"
+
+[deps]
+
+source_file="res://sound/Sea Sound by Amholma Freesound.mp3"
+dest_files=[ "res://.import/Sea Sound by Amholma Freesound.mp3-f0769a4e8bfa5d6127b2c49123b51970.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

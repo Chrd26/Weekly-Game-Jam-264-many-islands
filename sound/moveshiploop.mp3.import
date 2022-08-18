@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/moveshiploop.mp3-52d2ea76c0f893abe09ee3dd789bb3fd.mp3str"
+
+[deps]
+
+source_file="res://sound/moveshiploop.mp3"
+dest_files=[ "res://.import/moveshiploop.mp3-52d2ea76c0f893abe09ee3dd789bb3fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

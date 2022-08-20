@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://models/powerups/powerdown/de-buff.glb" type="PackedScene" id=1]
+[ext_resource path="res://de-buff.gd" type="Script" id=2]
+[ext_resource path="res://AnimationPlayer.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, -55.6881, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "circlerotation"
+length = 10.417
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = PoolRealArray(  )
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, -359, 0 ) ]
+}
+
+[sub_resource type="SphereShape" id=6]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 250, 38.1, 250 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "movement"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 250, 38.1, 300 ), Vector3( 250, 38.1, 200 ) ]
+}
+
+[node name="de-buff" groups=["de-buff"] instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 250, 38.1, 250 )
+script = ExtResource( 2 )
+
+[node name="Torus" parent="." index="0"]
+transform = Transform( -0.564361, 0.343803, -5.96046e-08, 0, 0, -1, -0.825528, -0.235037, 1.78814e-07, 0, 0, 0 )
+
+[node name="Circle" parent="." index="1"]
+transform = Transform( 0.281849, -0.825981, 1.80524e-08, 0, -4.37114e-08, -0.5, 0.412991, 0.563697, -1.232e-08, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Circle" index="0"]
+autoplay = "circlerotation"
+playback_speed = 6.0
+anims/RESET = SubResource( 1 )
+anims/circlerotation = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "CircleAction"
+playback_speed = 6.0
+script = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="." index="3"]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.3, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="movement" type="AnimationPlayer" parent="." index="4"]
+autoplay = "movement"
+anims/RESET = SubResource( 4 )
+anims/movement = SubResource( 5 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="animation_finished" from="movement" to="." method="_on_movement_animation_finished"]

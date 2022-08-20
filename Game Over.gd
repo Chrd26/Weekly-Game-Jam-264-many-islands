@@ -9,7 +9,7 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 	Global.lives = 3;
-	
+	Global.timer.set_wait_time(5);
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

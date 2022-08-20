@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://islandfinalfinal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RigidBody.gd" type="Script" id=2]
 [ext_resource path="res://island1spawnandmovement.gd" type="Script" id=3]
+[ext_resource path="res://AnimationPlayer.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 length = 5.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
@@ -61,6 +63,7 @@ playback_speed = 0.3
 anims/RESET = SubResource( 2 )
 anims/island_movement = SubResource( 1 )
 anims/movement = SubResource( 4 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0999908 )

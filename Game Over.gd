@@ -1,4 +1,6 @@
 extends Node2D
+var randomPitch = RandomNumberGenerator.new()
+var randomPitchNumber;
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -20,9 +22,10 @@ func _ready():
 func _on_Button_pressed():
 	pass # Replace with function body.
 	# warning-ignore:return_value_discarded
-	var loadsound = load("res://sounds.tscn")
-	var buttonPlay = loadsound.instance();
-	add_child(buttonPlay);
+	randomPitch.randomize();
+	randomPitchNumber = randomPitch.randf_range(0.8, 1.1);
+	$"/root/GlobalButton".pitch_scale = randomPitchNumber;
+	$"/root/GlobalButton".play();
 	get_tree().change_scene("res://mainGameplay.tscn");
 	Global.score = 0;
 	

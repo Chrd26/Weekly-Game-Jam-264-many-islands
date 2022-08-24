@@ -6,7 +6,7 @@ export var speed = 3;
 export var fallSpeed = 75;
 var velocity = Vector3.ZERO;
 var position = Vector3.ZERO;
-var randomPitcn = RandomNumberGenerator.new();
+var randomPitch = RandomNumberGenerator.new();
 var randomPitchNumber;
 
 
@@ -37,7 +37,6 @@ func _physics_process(_delta):
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -46,10 +45,13 @@ func _ready():
 func _on_Area_body_entered(body):
 	pass # Replace with function body.
 	if body.is_in_group("island"):
-		Global.lives -= 1;
-		if !$loselife.is_playing():
-			randomPitcn.randomize();
-			randomPitchNumber = randomPitcn.randf_range(0.8, 1.2);
-			$loselife.pitch_scale = randomPitchNumber;
-			$loselife.play();
+		if Global.isImmunityOn:
+			pass
+		else:
+			Global.lives -= 1;
+			if !$loselife.is_playing():
+				randomPitch.randomize();
+				randomPitchNumber = randomPitch.randf_range(1.1, 1.3);
+				$loselife.pitch_scale = randomPitchNumber;
+				$loselife.play();
 

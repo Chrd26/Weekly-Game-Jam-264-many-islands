@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Get point.wav-c99f74db49d4848e9991211b5a99bd88.sample"
+
+[deps]
+
+source_file="res://sound/Get point.wav"
+dest_files=[ "res://.import/Get point.wav-c99f74db49d4848e9991211b5a99bd88.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

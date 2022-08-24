@@ -70,7 +70,7 @@ tracks/0/keys = {
 }
 
 [node name="lifeup" groups=["lifeup"] instance=ExtResource( 1 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 250, 38.1, 100 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 250, 38.1, 100 )
 script = ExtResource( 2 )
 
 [node name="Torus" parent="." index="0"]
@@ -83,7 +83,7 @@ anims/RESET = SubResource( 1 )
 anims/rotation = SubResource( 2 )
 
 [node name="Circle" parent="." index="1"]
-transform = Transform( -0.479198, 0.285444, -1.49012e-08, -1.49012e-08, -3.57628e-07, -0.5, -0.142722, -0.958395, 0, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, -1.19209e-07, -0.5, 0, 1, -5.96046e-08, 0, 0, 0 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "CircleAction"

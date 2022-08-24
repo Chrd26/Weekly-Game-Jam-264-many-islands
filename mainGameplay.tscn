@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -16,8 +16,9 @@
 [ext_resource path="res://sound/boat-MP3.mp3" type="AudioStream" id=14]
 [ext_resource path="res://sound/moveshiploop.mp3" type="AudioStream" id=15]
 [ext_resource path="res://sound/Sea Sound by Amholma Freesound.mp3" type="AudioStream" id=16]
-[ext_resource path="res://sound/Get point-MP3.mp3" type="AudioStream" id=17]
-[ext_resource path="res://sound/Lose Life-MP3.mp3" type="AudioStream" id=18]
+[ext_resource path="res://sound/Get point.wav" type="AudioStream" id=17]
+[ext_resource path="res://sound/losedebuff.wav" type="AudioStream" id=18]
+[ext_resource path="res://CanvasLayer.gd" type="Script" id=20]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
@@ -80,11 +81,6 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
 }
 
-[sub_resource type="PlaneMesh" id=10]
-
-[sub_resource type="BoxShape" id=11]
-extents = Vector3( 2.174, 1, 1 )
-
 [sub_resource type="DynamicFontData" id=15]
 font_path = "res://fonts/Roboto-LightItalic.ttf"
 
@@ -103,6 +99,19 @@ font_data = ExtResource( 13 )
 [sub_resource type="DynamicFont" id=17]
 size = 40
 font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 40
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 40
+font_data = ExtResource( 13 )
+
+[sub_resource type="PlaneMesh" id=10]
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 2.174, 1, 1 )
 
 [node name="mainNode" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -250 )
@@ -152,18 +161,6 @@ anims/water_anim = SubResource( 9 )
 [node name="player" parent="." groups=["player"] instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 249.998, 38.1, 250.003 )
 
-[node name="Area2" type="Area" parent="player"]
-transform = Transform( 2.516, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116, -3.1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="player/Area2"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 10 )
-skeleton = NodePath("../../Area2")
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="player/Area2"]
-shape = SubResource( 11 )
-
 [node name="boatmachinesound" type="AudioStreamPlayer3D" parent="player"]
 stream = ExtResource( 14 )
 autoplay = true
@@ -179,12 +176,12 @@ doppler_tracking = 2
 
 [node name="pointget" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource( 17 )
-volume_db = 10.0
+volume_db = 15.0
 bus = "getpoint"
 
 [node name="loselife" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource( 18 )
-volume_db = 10.0
+volume_db = 2.0
 bus = "loselife"
 
 [node name="spawn" parent="." instance=ExtResource( 9 )]
@@ -210,6 +207,7 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 20 )
 
 [node name="livesnumber" type="Label" parent="CanvasLayer"]
 margin_left = 137.0
@@ -261,5 +259,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="body_entered" from="player/Area2" to="." method="_on_Area_body_entered"]
+[node name="immunityLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -83.0
+margin_right = 83.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 18 )
+text = "Immunity"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="immunityRoundsLeft" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 40.0
+margin_right = 20.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 19 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2" type="Area" parent="."]
+transform = Transform( 2.516, 0, 0, 0, 1, 0, 0, 0, 1, 249.998, 37.984, 246.903 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Area2"]
+shape = SubResource( 11 )
+
 [connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]
+[connection signal="body_entered" from="Area2" to="." method="_on_Area_body_entered"]

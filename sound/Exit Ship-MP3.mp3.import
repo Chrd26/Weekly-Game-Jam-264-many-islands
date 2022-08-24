@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Exit Ship-MP3.mp3-c97c55854396a46c7767697d4eef861a.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

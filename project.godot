@@ -32,8 +32,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Powerupsound="*res://powerupsound.tscn"
+Debuffsound="*res://debuffsound.tscn"
 Global="*res://global.gd"
 GlobalTimer="*res://timer.tscn"
+GlobalButton="*res://button.tscn"
+Immunityrounds="*res://immunityrounds.tscn"
 
 [editor_plugins]
 

@@ -1,11 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/Roboto-MediumItalic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://begin.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Roboto-LightItalic.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -2, 0 )
@@ -14,16 +31,74 @@ script = ExtResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -45.5
-margin_right = 125.0
-margin_bottom = 45.5
+anchor_left = 0.37793
+anchor_top = 0.848333
+anchor_right = 0.62207
+anchor_bottom = 1.0
+margin_top = -16.0
+margin_bottom = -16.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="How to play" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -103.5
+margin_right = 103.5
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 2 )
+text = "How to Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="CanvasLayer"]
+anchor_left = 0.240723
+anchor_top = 0.0716667
+anchor_right = 0.759277
+anchor_bottom = 0.321667
+custom_fonts/font = SubResource( 3 )
+text = "Press A to Move Left.
+Press D to Move Right.
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Powers ups" type="Label" parent="CanvasLayer"]
+anchor_left = 0.226074
+anchor_top = 0.2525
+anchor_right = 0.773926
+anchor_bottom = 0.5075
+custom_fonts/font = SubResource( 4 )
+text = "Power ups
+Yellow : Makes you Immune for 10 seconds.
+Green: You get one life point.
+Red: Spawns more islands. Try to avoid"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="CanvasLayer"]
+anchor_left = 0.240234
+anchor_top = 0.574167
+anchor_right = 0.759766
+anchor_bottom = 0.8525
+custom_fonts/font = SubResource( 5 )
+text = "Credits:
+Sea Sound by Amholma from Freesound
+Point Get Bell sounds by Rucisko from Freesound
+Boat Horn by Devy32 from Freesound
+"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

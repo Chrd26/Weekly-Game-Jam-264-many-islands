@@ -1,8 +1,64 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://textures/water 0340normal.jpg" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
 [ext_resource path="res://boat.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -5, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "boatmovement"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.22, 0 ), Vector3( 0, -0.18, 0 ), Vector3( 0, -0.22, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -4, -180, 0 ), Vector3( 3, -180, 0 ), Vector3( -4, -180, 0 ) ]
+}
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.144709, 0.107893, 0.295822 )
@@ -100,7 +156,12 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="boat" parent="Pivot" instance=ExtResource( 3 )]
-transform = Transform( -0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, 0, -0.2, 0 )
+transform = Transform( -0.15, -1.14291e-09, 1.30635e-08, 0, 0.149429, 0.0130734, -1.31134e-08, 0.0130734, -0.149429, 0, -0.2, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/boat"]
+autoplay = "boatmovement"
+anims/RESET = SubResource( 12 )
+anims/boatmovement = SubResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

@@ -69,7 +69,7 @@ tracks/0/keys = {
 }
 
 [node name="immunity" groups=["immunity"] instance=ExtResource( 1 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 250, 38.1, 100 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 250, 38.1, 100 )
 script = ExtResource( 2 )
 
 [node name="Torus" parent="." index="0"]
@@ -101,3 +101,4 @@ anims/RESET = SubResource( 5 )
 anims/movement = SubResource( 4 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="animation_finished" from="movement" to="." method="_on_movement_animation_finished"]

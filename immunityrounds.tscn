@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://fonts/Roboto-LightItalic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://immunityrounds.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.5 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../immunityRoundsLeft:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "timelftAnim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../immunityRoundsLeft:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.5 ) ]
+}
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="immunityLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.0
+margin_top = -217.0
+margin_right = 193.0
+margin_bottom = -169.0
+custom_fonts/font = SubResource( 1 )
+text = "Immunity"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelAnim" type="AnimationPlayer" parent="immunityLabel"]
+playback_speed = 0.5
+anims/RESET = SubResource( 6 )
+anims/anim = SubResource( 5 )
+
+[node name="immunityRoundsLeft" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = -180.0
+margin_right = -22.0
+margin_bottom = -132.0
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roundsleftAnim" type="AnimationPlayer" parent="immunityRoundsLeft"]
+root_node = NodePath("../../immunityLabel")
+playback_speed = 0.5
+anims/RESET = SubResource( 3 )
+anims/timelftAnim = SubResource( 4 )
+
+[node name="ImmunityTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="ImmunityTimer" to="." method="_on_ImmunityTimer_timeout"]

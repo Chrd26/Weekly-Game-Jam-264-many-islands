@@ -1,5 +1,6 @@
 extends Spatial
-
+var randomPitch = RandomNumberGenerator.new();
+var randomPitchNumber;
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,8 +19,16 @@ func _ready():
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
+		randomPitch.randomize()
+		randomPitchNumber = randomPitch.randf_range(1.0, 1.1);
+		$"/root/Powerupsound".pitch_scale = randomPitchNumber;
+		$"/root/Powerupsound".play();
+		Global.lives += 1;
+		print("life")
 		queue_free(); 
+	else:
+		pass;
 
 
-func _on_AnimationPlayer2_animation_finished(anim_name):
-	queue_free();
+func _on_AnimationPlayer2_animation_finished(_anim_name):
+		queue_free()

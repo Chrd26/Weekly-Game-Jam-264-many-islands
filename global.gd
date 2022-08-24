@@ -2,11 +2,20 @@ extends Spatial
 var score = 0;
 var lives = 3;
 onready var timer = get_node("/root/GlobalTimer");
+#onready var getPower = get_node("powerup");
 var randomSpawnNumber = RandomNumberGenerator.new();
 var randomSpawn
 var randomPitch = RandomNumberGenerator.new();
 var randomPitchNumber;
-
+var randomPowerSpawn = RandomNumberGenerator.new();
+var randomPowerNumber;
+var randomPowerTypespawn = RandomNumberGenerator.new();
+var randomPowerTypeNumber;
+var isImmunityOn = false;
+var immunityRounds = 0;
+var isDebuff = false;
+var isImmunityUIOn = false;
+var islifeup = false;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,36 +28,66 @@ func _ready():
 	
 
 func _process(_delta):
+	
 	if Global.lives == 0:
-# warning-ignore:return_value_discarded
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Game Over.tscn")
-		#if Global.score < 10 && score > 0:
-			#timer.set_wait_time(1 / score + 5);
-		#if Global.score > 10 && score < 20:
-			#timer.set_wait_time(1 / score + 4);
-		#if Global.score > 20 && score < 30:
-			#timer.set_wait_time(1 / score + 3);
-		#if Global.score > 30 && score < 40:
-			#timer.set_wait_time(1 / score + 2);
-		#if Global.score > 40 && score < 50:
-			#timer.set_wait_time(1 / score + 1);
-		#if Global.score > 50:
-			#timer.set_wait_time(1 / score + 0);
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-func _on_Area_body_entered(_body):
-	Global.score += 1;
-	if !$player/pointget.is_playing():
-		randomPitch.randomize()
-		randomPitchNumber = randomPitch.randf_range(0.8, 1.1);
-		$player/pointget.pitch_scale = randomPitchNumber;
+func _on_Area_body_entered(body):
+	if body.is_in_group("island"):
+		Global.score += 1;
+		if !$player/pointget.is_playing():
+			randomPitch.randomize()
+			randomPitchNumber = randomPitch.randf_range(1.2, 1.25);
+			$player/pointget.pitch_scale = randomPitchNumber;
 		$player/pointget.play();
 
 func _on_spawn_timeout():
-	randomSpawnNumber.randomize()
+	randomPitch.randomize();
+	randomPitchNumber = randomPitch.randf_range(1.0, 1.1);
+	randomPowerSpawn.randomize();
+	randomPowerNumber = randomPowerSpawn.randi_range(1,10);
+	if randomPowerNumber <= 3:
+		randomPowerTypespawn.randomize();
+		randomPowerTypeNumber = randomPowerTypespawn.randi_range(0,2)
+		if randomPowerTypeNumber == 0:
+			var randDebuff_x;
+			var loadDebuff;
+			var debuff;
+			loadDebuff = load("res://de-buff.tscn");
+			randDebuff_x = rand_range(243, 257);
+			debuff = loadDebuff.instance();
+			debuff.translation.x = randDebuff_x;
+			debuff.translation.y = 38.1;
+			debuff.translation.z = 250;
+			add_child(debuff);
+		elif randomPowerTypeNumber == 1:
+			var randImmunity_x;
+			var loadImmunity;
+			var immunity;
+			loadImmunity = load("res://immunity.tscn");
+			randImmunity_x = rand_range(243, 257);
+			immunity = loadImmunity.instance();
+			immunity.translation.x = randImmunity_x;
+			immunity.translation.y = 38.1;
+			immunity.translation.z = 250;
+			add_child(immunity);
+		elif randomPowerTypeNumber == 2:
+			var randLife_x;
+			var loadLife;
+			var life;
+			loadLife = load("res://lifeup.tscn");
+			randLife_x = rand_range(243, 257);
+			life = loadLife.instance();
+			life.translation.x = randLife_x;
+			life.translation.y = 38.1;
+			life.translation.z = 250;
+			add_child(life);
+	
+	randomSpawnNumber.randomize();
 	randomSpawn = randomSpawnNumber.randi_range(0, 10);
 	if Global.score > 0:
 		var time1 = 1/ Global.score+5;

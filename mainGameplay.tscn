@@ -181,7 +181,7 @@ bus = "getpoint"
 
 [node name="loselife" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource( 18 )
-volume_db = 2.0
+volume_db = 10.0
 bus = "loselife"
 
 [node name="spawn" parent="." instance=ExtResource( 9 )]

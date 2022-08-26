@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/606Break 2Guitar Harmonies7587.ogg-5e8b07f65b656ec57e6a06f231406140.oggstr"
+
+[deps]
+
+source_file="res://Music/606Break 2Guitar Harmonies7587.ogg"
+dest_files=[ "res://.import/606Break 2Guitar Harmonies7587.ogg-5e8b07f65b656ec57e6a06f231406140.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

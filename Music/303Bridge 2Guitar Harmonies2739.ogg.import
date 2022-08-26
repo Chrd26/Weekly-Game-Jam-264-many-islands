@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/303Bridge 2Guitar Harmonies2739.ogg-c4551329242a2783b27fc657b46d5d79.oggstr"
+
+[deps]
+
+source_file="res://Music/303Bridge 2Guitar Harmonies2739.ogg"
+dest_files=[ "res://.import/303Bridge 2Guitar Harmonies2739.ogg-c4551329242a2783b27fc657b46d5d79.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

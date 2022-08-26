@@ -63,7 +63,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "movement"
 length = 5.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
@@ -85,7 +84,7 @@ script = ExtResource( 2 )
 transform = Transform( -0.564361, 0.343803, -5.96046e-08, 0, 0, -1, -0.825528, -0.235037, 1.78814e-07, 0, 0, 0 )
 
 [node name="Circle" parent="." index="1"]
-transform = Transform( 0.281849, -0.825981, 1.80524e-08, 0, -4.37114e-08, -0.5, 0.412991, 0.563697, -1.232e-08, 0, 0, 0 )
+transform = Transform( 0.281849, -0.825981, 1.80524e-08, 0, -4.37114e-08, -0.5, 0.412991, 0.563698, -1.232e-08, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Circle" index="0"]
 autoplay = "circlerotation"

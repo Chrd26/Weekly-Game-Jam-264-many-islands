@@ -51,7 +51,7 @@ func _on_Area_body_entered(body):
 			Global.lives -= 1;
 			if !$loselife.is_playing():
 				randomPitch.randomize();
-				randomPitchNumber = randomPitch.randf_range(1.1, 1.3);
+				randomPitchNumber = randomPitch.randf_range(1.1, 1.15);
 				$loselife.pitch_scale = randomPitchNumber;
 				$loselife.play();
 

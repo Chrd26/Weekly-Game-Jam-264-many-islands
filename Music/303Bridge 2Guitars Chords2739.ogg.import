@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/303Bridge 2Guitars Chords2739.ogg-de1d5ede265f5a79ca0ed3d85eb85733.oggstr"
+
+[deps]
+
+source_file="res://Music/303Bridge 2Guitars Chords2739.ogg"
+dest_files=[ "res://.import/303Bridge 2Guitars Chords2739.ogg-de1d5ede265f5a79ca0ed3d85eb85733.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

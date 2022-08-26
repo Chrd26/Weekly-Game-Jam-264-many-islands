@@ -1,0 +1,213 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://Music/101IntroPercs03.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Music_Intro.gd" type="Script" id=2]
+[ext_resource path="res://Music/202Bridge 1Guitar Harmonies327.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Music/202Bridge 1Synth327.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Music/202Bridge 1Percs327.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Music/202Bridge 1Bass327.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Music/202Bridge 1Guitars Chords327.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Music/303Bridge 2Percs2739.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Music/303Bridge 2Guitars Chords2739.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Music/303Bridge 2Synth2739.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Music/303Bridge 2Guitar Harmonies2739.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Music/303Bridge 2Bass2739.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Music/404Break 1Synth3951.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Music/505Bridge 3Percs5175.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Music/404Break 1Guitars Chords3951.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Music/505Bridge 3Guitars Chords5175.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Music/505Bridge 3Synth5175.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Music/404Break 1Bass3951.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Music/505Bridge 3Bass5175.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Music/505Bridge 3Guitar Harmonies5175.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Music/404Break 1Guitar Harmonies3951.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Music/404Break 1Percs3951.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Music/606Break 2Guitars Chords7587.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Music/606Break 2SFX7587.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Music/606Break 2Bass7587.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Music/606Break 2Guitar Harmonies7587.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Music/606Break 2Synth7587.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Music/606Break 2Percs7587.ogg" type="AudioStream" id=28]
+[ext_resource path="res://Music/707Bridge 4Bass8799.ogg" type="AudioStream" id=29]
+[ext_resource path="res://Music/707Bridge 4Guitar Harmonies8799.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Music/707Bridge 4Guitars Chords8799.ogg" type="AudioStream" id=31]
+[ext_resource path="res://Music/707Bridge 4Percs8799.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Music/707Bridge 4SFX8799.ogg" type="AudioStream" id=33]
+[ext_resource path="res://Music/707Bridge 4Synth8799.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Music/808Bridge 5Bass99135.ogg" type="AudioStream" id=35]
+[ext_resource path="res://Music/808Bridge 5Guitar Harmonies99135.ogg" type="AudioStream" id=36]
+[ext_resource path="res://Music/808Bridge 5Percs99135.ogg" type="AudioStream" id=37]
+[ext_resource path="res://Music/808Bridge 5Synth99135.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Music/909OutroPercs135144.ogg" type="AudioStream" id=39]
+[ext_resource path="res://Music/909OutroSynth135144.ogg" type="AudioStream" id=40]
+
+[node name="Music_Intro" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+bus = "Music"
+script = ExtResource( 2 )
+
+[node name="202_Bridge_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Music"
+
+[node name="202_Bridge_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Music"
+
+[node name="202_Bridge_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Music"
+
+[node name="202_Bridge_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Music"
+
+[node name="202_Bridge_Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Music"
+
+[node name="303_Bridge_2_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Music"
+
+[node name="303_Bridge_2_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "Music"
+
+[node name="303_Bridge_2_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "Music"
+
+[node name="303_Bridge_2_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "Music"
+
+[node name="303_Bridge_2_Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "Music"
+
+[node name="404_Break_1_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "Music"
+
+[node name="404_Break_1_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+bus = "Music"
+
+[node name="404_Break_1_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+bus = "Music"
+
+[node name="404_Break_1_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+bus = "Music"
+
+[node name="404_Break_1_Synths" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "Music"
+
+[node name="505_Bridge_3_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+bus = "Music"
+
+[node name="505_Bridge_3_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+bus = "Music"
+
+[node name="505_Bridge_3_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+bus = "Music"
+
+[node name="505_Bridge_3_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+bus = "Music"
+
+[node name="505_Bridge_3_Synths" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+bus = "Music"
+
+[node name="606_Break_2_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+bus = "Music"
+
+[node name="606_Break_2_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+bus = "Music"
+
+[node name="606_Break_2_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+bus = "Music"
+
+[node name="606_Break_2_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+bus = "Music"
+
+[node name="606_Break_2_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+bus = "Music"
+
+[node name="606_Break_2_Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+bus = "Music"
+
+[node name="707_Bridge_4_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+bus = "Music"
+
+[node name="707_Bridge_4_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+bus = "Music"
+
+[node name="707_Bridge_4_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+bus = "Music"
+
+[node name="707_Bridge_4_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+bus = "Music"
+
+[node name="707_Bridge_4_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 33 )
+bus = "Music"
+
+[node name="707_Bridge_4_Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+bus = "Music"
+
+[node name="808_Bridge_5_Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
+bus = "Music"
+
+[node name="808_Bridge_5_Guitar_Harmonies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+bus = "Music"
+
+[node name="808_Bridge_5_Guitar_Chords" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+bus = "Music"
+
+[node name="808_Bridge_5_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 37 )
+bus = "Music"
+
+[node name="808_Bridge_5_Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
+bus = "Music"
+
+[node name="909_Outro_Percs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+bus = "Music"
+
+[node name="909_Outro_Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 40 )
+bus = "Music"
+
+[connection signal="finished" from="." to="." method="_on_Music_Intro_finished"]
+[connection signal="finished" from="202_Bridge_Percs" to="." method="_on_202_Bridge_Percs_finished"]
+[connection signal="finished" from="303_Bridge_2_Percs" to="." method="_on_303_Bridge_2_Percs_finished"]
+[connection signal="finished" from="404_Break_1_Percs" to="." method="_on_404_Break_1_Percs_finished"]
+[connection signal="finished" from="505_Bridge_3_Percs" to="." method="_on_505_Bridge_3_Percs_finished"]
+[connection signal="finished" from="606_Break_2_Percs" to="." method="_on_606_Break_2_Percs_finished"]
+[connection signal="finished" from="707_Bridge_4_Percs" to="." method="_on_707_Bridge_4_Percs_finished"]
+[connection signal="finished" from="808_Bridge_5_Percs" to="." method="_on_808_Bridge_5_Percs_finished"]
+[connection signal="finished" from="909_Outro_Percs" to="." method="_on_909_Outro_Percs_finished"]

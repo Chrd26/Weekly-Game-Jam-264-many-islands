@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/505Bridge 3Guitar Harmonies5175.ogg-c47fc007b181b98b15f1d979be394f6f.oggstr"
+
+[deps]
+
+source_file="res://Music/505Bridge 3Guitar Harmonies5175.ogg"
+dest_files=[ "res://.import/505Bridge 3Guitar Harmonies5175.ogg-c47fc007b181b98b15f1d979be394f6f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

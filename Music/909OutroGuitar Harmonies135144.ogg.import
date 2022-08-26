@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/909OutroGuitar Harmonies135144.ogg-53add876827a943a83835eb1a55c92cf.oggstr"
+
+[deps]
+
+source_file="res://Music/909OutroGuitar Harmonies135144.ogg"
+dest_files=[ "res://.import/909OutroGuitar Harmonies135144.ogg-53add876827a943a83835eb1a55c92cf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

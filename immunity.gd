@@ -20,7 +20,7 @@ func _ready():
 func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
 		randomPitch.randomize()
-		randomPitchNumber = randomPitch.randf_range(1.0, 1.1);
+		randomPitchNumber = randomPitch.randf_range(1.0, 1.05);
 		$"/root/Powerupsound".pitch_scale = randomPitchNumber;
 		$"/root/Powerupsound".play();
 		Global.isImmunityOn = true;

@@ -47,7 +47,7 @@ func _on_Area_body_entered(body):
 
 func _on_spawn_timeout():
 	randomPitch.randomize();
-	randomPitchNumber = randomPitch.randf_range(1.0, 1.1);
+	randomPitchNumber = randomPitch.randf_range(1.0, 1.05);
 	randomPowerSpawn.randomize();
 	randomPowerNumber = randomPowerSpawn.randi_range(1,10);
 	if randomPowerNumber <= 3:
@@ -58,7 +58,7 @@ func _on_spawn_timeout():
 			var loadDebuff;
 			var debuff;
 			loadDebuff = load("res://de-buff.tscn");
-			randDebuff_x = rand_range(243, 257);
+			randDebuff_x = rand_range(240, 260);
 			debuff = loadDebuff.instance();
 			debuff.translation.x = randDebuff_x;
 			debuff.translation.y = 38.1;
@@ -69,7 +69,7 @@ func _on_spawn_timeout():
 			var loadImmunity;
 			var immunity;
 			loadImmunity = load("res://immunity.tscn");
-			randImmunity_x = rand_range(243, 257);
+			randImmunity_x = rand_range(240, 260);
 			immunity = loadImmunity.instance();
 			immunity.translation.x = randImmunity_x;
 			immunity.translation.y = 38.1;
@@ -80,7 +80,7 @@ func _on_spawn_timeout():
 			var loadLife;
 			var life;
 			loadLife = load("res://lifeup.tscn");
-			randLife_x = rand_range(243, 257);
+			randLife_x = rand_range(240, 260);
 			life = loadLife.instance();
 			life.translation.x = randLife_x;
 			life.translation.y = 38.1;

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/606Break 2Bass7587.ogg-34b6569251c0fa6afcda3e605ae21bd1.oggstr"
+
+[deps]
+
+source_file="res://Music/606Break 2Bass7587.ogg"
+dest_files=[ "res://.import/606Break 2Bass7587.ogg-34b6569251c0fa6afcda3e605ae21bd1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

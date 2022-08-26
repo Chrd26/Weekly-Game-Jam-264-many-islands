@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/707Bridge 4Synth8799.ogg-925be26f600c47e593d52bfb7800882e.oggstr"
+
+[deps]
+
+source_file="res://Music/707Bridge 4Synth8799.ogg"
+dest_files=[ "res://.import/707Bridge 4Synth8799.ogg-925be26f600c47e593d52bfb7800882e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

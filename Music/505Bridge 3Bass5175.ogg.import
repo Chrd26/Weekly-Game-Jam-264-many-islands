@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/505Bridge 3Bass5175.ogg-eeb467ff722743be546e9719382064ee.oggstr"
+
+[deps]
+
+source_file="res://Music/505Bridge 3Bass5175.ogg"
+dest_files=[ "res://.import/505Bridge 3Bass5175.ogg-eeb467ff722743be546e9719382064ee.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -156,7 +156,7 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="boat" parent="Pivot" instance=ExtResource( 3 )]
-transform = Transform( -0.15, -1.14291e-09, 1.30635e-08, 0, 0.149429, 0.0130734, -1.31134e-08, 0.0130734, -0.149429, 0, -0.2, 0 )
+transform = Transform( -0.15, -1.14291e-09, 1.30635e-08, 0, 0.149429, 0.0130733, -1.31134e-08, 0.0130733, -0.149429, 0, -0.2, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/boat"]
 autoplay = "boatmovement"

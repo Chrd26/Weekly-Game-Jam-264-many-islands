@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/404Break 1Guitars Chords3951.ogg-32ac217b62755be373117220be094453.oggstr"
+
+[deps]
+
+source_file="res://Music/404Break 1Guitars Chords3951.ogg"
+dest_files=[ "res://.import/404Break 1Guitars Chords3951.ogg-32ac217b62755be373117220be094453.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

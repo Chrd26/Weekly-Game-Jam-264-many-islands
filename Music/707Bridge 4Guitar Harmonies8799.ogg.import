@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/707Bridge 4Guitar Harmonies8799.ogg-83a60124d1358e6af4e4bf5ddb32d1da.oggstr"
+
+[deps]
+
+source_file="res://Music/707Bridge 4Guitar Harmonies8799.ogg"
+dest_files=[ "res://.import/707Bridge 4Guitar Harmonies8799.ogg-83a60124d1358e6af4e4bf5ddb32d1da.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

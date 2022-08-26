@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/202Bridge 1Percs327.ogg-1722d1110d87942e625e533ecdb1c23d.oggstr"
+
+[deps]
+
+source_file="res://Music/202Bridge 1Percs327.ogg"
+dest_files=[ "res://.import/202Bridge 1Percs327.ogg-1722d1110d87942e625e533ecdb1c23d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

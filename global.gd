@@ -58,7 +58,7 @@ func _on_spawn_timeout():
 			var loadDebuff;
 			var debuff;
 			loadDebuff = load("res://de-buff.tscn");
-			randDebuff_x = rand_range(240, 260);
+			randDebuff_x = rand_range(245, 252);
 			debuff = loadDebuff.instance();
 			debuff.translation.x = randDebuff_x;
 			debuff.translation.y = 38.1;
@@ -69,7 +69,7 @@ func _on_spawn_timeout():
 			var loadImmunity;
 			var immunity;
 			loadImmunity = load("res://immunity.tscn");
-			randImmunity_x = rand_range(240, 260);
+			randImmunity_x = rand_range(245, 252);
 			immunity = loadImmunity.instance();
 			immunity.translation.x = randImmunity_x;
 			immunity.translation.y = 38.1;
@@ -80,7 +80,7 @@ func _on_spawn_timeout():
 			var loadLife;
 			var life;
 			loadLife = load("res://lifeup.tscn");
-			randLife_x = rand_range(240, 260);
+			randLife_x = rand_range(245, 252);
 			life = loadLife.instance();
 			life.translation.x = randLife_x;
 			life.translation.y = 38.1;
@@ -125,10 +125,10 @@ func _on_spawn_timeout():
 			var loadisland;
 			var island;
 			loadisland = load("res://island1spawnandmovement.tscn");
-			rand_x = rand_range(240, 260);
+			rand_x = rand_range(248, 251);
 			island = loadisland.instance();
 			island.translation.x = rand_x;
-			island.translation.y = 37.8;
+			island.translation.y = 38;
 			island.translation.z = 250;
 			add_child(island);
 	elif Global.score >  10:
@@ -139,10 +139,10 @@ func _on_spawn_timeout():
 				var loadisland;
 				var island;
 				loadisland = load("res://island1spawnandmovement.tscn");
-				rand_x = rand_range(219, 281);
+				rand_x = rand_range(248, 251);
 				island = loadisland.instance();
 				island.translation.x = rand_x;
-				island.translation.y = 37.8;
+				island.translation.y = 38;
 				island.translation.z = 250;
 				add_child(island);
 		elif randomSpawn < 7:
@@ -152,9 +152,9 @@ func _on_spawn_timeout():
 				var loadisland;
 				var island;
 				loadisland = load("res://island1spawnandmovement.tscn");
-				rand_x = rand_range(229, 271);
+				rand_x = rand_range(248, 251);
 				island = loadisland.instance();
 				island.translation.x = rand_x;
-				island.translation.y = 37.8;
+				island.translation.y = 38;
 				island.translation.z = 250;
 				add_child(island);

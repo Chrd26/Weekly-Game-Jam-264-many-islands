@@ -25,10 +25,11 @@ func _on_Area_body_entered(body):
 				var rand_x;
 				var loadisland;
 				var island;
-				loadisland = load("res://island1spawnandmovement.tscn");				rand_x = rand_range(219, 281);
+				loadisland = load("res://island1spawnandmovement.tscn");
+				rand_x = rand_range(248, 251);
 				island = loadisland.instance();
 				island.translation.x = rand_x;
-				island.translation.y = 37.8;
+				island.translation.y = 38;
 				island.translation.z = 250;
 				add_child(island);
 		elif Global.score > 20:
@@ -37,10 +38,11 @@ func _on_Area_body_entered(body):
 					var rand_x;
 					var loadisland;
 					var island;
-					loadisland = load("res://island1spawnandmovement.tscn");				rand_x = rand_range(219, 281);
+					loadisland = load("res://island1spawnandmovement.tscn");
+					rand_x = rand_range(248, 251);
 					island = loadisland.instance();
 					island.translation.x = rand_x;
-					island.translation.y = 37.8;
+					island.translation.y = 38;
 					island.translation.z = 250;
 					add_child(island);
 		print("debuff");

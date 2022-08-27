@@ -16,12 +16,6 @@ var hasSFXPlayed = false;
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Music_Intro_finished():
 	playNext.randomize();
 	playNextConfirm = playNext.randi_range(0,1);

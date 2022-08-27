@@ -18,7 +18,6 @@ func _process(_delta):
 		$immunityRoundsLeft/roundsleftAnim.play("timelftAnim");
 		$ImmunityTimer.set_wait_time(10);
 		$ImmunityTimer.start();
-		$immunityRoundsLeft.text = str($ImmunityTimer.time_left);
 		isUIOn = true;
 	$immunityRoundsLeft.text = str($ImmunityTimer.time_left)
 	

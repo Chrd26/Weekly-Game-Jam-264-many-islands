@@ -77,7 +77,7 @@ tracks/0/keys = {
 }
 
 [node name="de-buff" groups=["de-buff"] instance=ExtResource( 1 )]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 250, 38.1, 250 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 250, 38.1, 250 )
 script = ExtResource( 2 )
 
 [node name="Torus" parent="." index="0"]

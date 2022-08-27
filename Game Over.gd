@@ -10,8 +10,8 @@ var randomPitchNumber;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-	Global.lives = 3;
 	Global.timer.set_wait_time(5);
+	Global.lives = 3;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,4 +28,3 @@ func _on_Button_pressed():
 	$"/root/GlobalButton".play();
 	get_tree().change_scene("res://mainGameplay.tscn");
 	Global.score = 0;
-	

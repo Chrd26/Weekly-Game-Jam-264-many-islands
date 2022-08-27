@@ -45,6 +45,7 @@ resource_name = "movement"
 extents = Vector3( 1.074, 0.489, 0.681 )
 
 [node name="island" type="Spatial"]
+transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="RigidBody" type="RigidBody" parent="." groups=["island"]]
